@@ -51,6 +51,7 @@ func compareValues(enemyHealth, userTotalAttack int) bool {
 
 func getUserAttack() int {
 	total := 0
+	damage := 0
 
 	for i := 0; i < 5; i++ {
 		inputAttack := input("Введи тип атаки: ")
@@ -69,8 +70,10 @@ func getUserAttack() int {
 		}
 		fmt.Println("Количество очков твоей атаки:", attackValue)
 		total += 1
+		damage += attackValue
+		fmt.Println("Damage: ", damage)
 	}
-	return total
+	return damage
 }
 
 func runGame() bool {
@@ -84,7 +87,7 @@ func runGame() bool {
 		fmt.Println("В этот раз не повезло :( Бой проигран.")
 	}
 	answer := input("Чтобы сыграть ещё раз, введи букву [y] или [Y]: ")
-	return answer == "Y"
+	return answer == "y" || answer == "Y"
 }
 
 func main() {
